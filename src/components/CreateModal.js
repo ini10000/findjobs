@@ -29,15 +29,34 @@ export default function CreateModal({ setShow, show }) {
             label="What type of employment is it"
             name="type"
             type="select"
-            options={["Permanent", "Temporary", "Contract", "Internship"]}
+            options={[
+              "Full-time",
+              "Temporary",
+              "Contract",
+              "Permanent",
+              "Internship",
+              "Volunteer",
+            ]}
           />
           <Input label="Salary Range" name="salary" type="number" />
+          <Input
+            label="What are the work conditions"
+            name="type"
+            type="select"
+            options={["Remote", "Part Remote", " On-Premise"]}
+          />
           <Input label="Submission deadline" name="deadline" type="date" />
           <Input
             label="What sector is this job categorized under?"
             name="category"
             type="select"
-            options={["Tech", "Finance"]}
+            options={[
+              "Tech",
+              "Health care",
+              "Hospitality",
+              "Customer Service",
+              "Marketing",
+            ]}
           />
           <Button containerStyle="submit_button" title={"Submit Application"} />
         </div>

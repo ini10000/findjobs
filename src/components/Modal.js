@@ -34,6 +34,11 @@ export default function Modal({ item, setShow, show, location }) {
           <Input label="E-mail Address" name="email" type="email" />
           <Input label="Location" name="location" type="text" />
           <Input label="Phone Number" name="phone" type="number" />
+          <Input
+            name="cv"
+            type="hidden"
+            onChange={(e) => (e.target.value = file)}
+          />
           <FileUploader handleChange={handleChange} name="CV">
             <div className="upload_container">
               <img height={40} src={Upload} alt="upload" />

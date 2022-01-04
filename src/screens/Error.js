@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import * as ROUTES from "../routes/routes";
 import { Link } from "react-router-dom";
 
@@ -8,8 +8,7 @@ import logo from "../assets/images/FindJobs.png";
 
 import Button from "../components/Button";
 
-export default function LandingPageGuest() {
-
+export default function Error() {
   return (
     <div className="guest_container">
       <div className="guest_header">

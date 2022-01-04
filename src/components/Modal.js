@@ -7,14 +7,13 @@ import { FileUploader } from "react-drag-drop-files";
 
 import "../assets/css/modal.css";
 
-export default function Modal({ item, setShow, show, location }) {
+export default function CustomModal({ item, setShow, show, location }) {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   const [file, setFile] = useState(null);
   const handleChange = (fileName) => {
     setFile(fileName);
     console.log(file);
   };
-
   return (
     <div className={showHideClassName}>
       <div className=" modal-main">

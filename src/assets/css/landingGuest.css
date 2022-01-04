@@ -130,10 +130,23 @@ a {
   height: 0;
   justify-content: flex-end;
 }
+.search_container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
 .guest_search {
-  position: absolute;
-  top: 46%;
-  left: 14%;
+  width: 50% !important;
+  height: 5rem !important;
+}
+.search {
+  background: #ffffff;
+  border: 0.5px solid #0f4a7b;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 2% 3%;
+  color: #0f4a7b;
 }
 .see_button {
   padding: 2rem;
@@ -141,6 +154,7 @@ a {
   border-radius: 10px;
 }
 .see_button_text {
+  margin-top: 2%;
   color: #ffffff;
 }
 .pagination_box {

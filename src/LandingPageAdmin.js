@@ -1,39 +1,51 @@
-import React, { useState } from "react";
-import { InputGroup, FormControl, Button } from "react-bootstrap";
-
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import axios from "axios";
 import { Jobs } from "../data/Jobs";
 import * as ROUTES from "../routes/routes";
 import "../assets/css/landingGuest.css";
 import "../assets/css/landingAdmin.css";
 
 import auth from "../utils/auth";
-import CustomButton from "../components/Button";
 import logo from "../assets/images/loginLogo.png";
 import copyright from "../assets/images/copyright.png";
 import terms from "../assets/images/Terms.png";
 import icons from "../assets/images/socialMediaIcons.png";
 import avatar from "../assets/images/Avatar.png";
+import newJob from "../assets/images/New.png";
+import search from "../assets/images/AdminSearch.png";
 import vector from "../assets/images/Vector.png";
+import edit from "../assets/images/Edit.png";
+import de from "../assets/images/Delete.png";
 import pink from "../assets/images/pinkBullet.png";
 import CreateModal from "../components/CreateModal";
 
 export default function LandingPageAdmin() {
-  const [searched, setSearched] = useState(Jobs.data);
+  const [jobs, setJobs] = useState(null);
   const [page, setPage] = useState(1);
   const [show, setShow] = useState(false);
 
   let navigate = useNavigate();
 
-  const handleSearch = (e) => {
-    let value = e.target.value.toLowerCase();
-    let result = [];
-    result = Jobs.data.filter((data) => {
-      return data.title.toLowerCase().includes(value);
+  const instance = axios.create({
+    baseURL: "https://api.jobboard.tedbree.com/v1",
+    withCredentials: false,
+    headers: {
+      Accept: "*/*",
+      "Content-Type": "application/json",
+      "Accept-Encoding": "gzip, deflate, br",
+      Connection: "keep-alive",
+      "Access-Control-Allow-Origin": "*",
+    },
+  });
+
+  useEffect(() => {
+    instance.get("/my/jobs").then((response) => {
+      setJobs(response.data);
+      console.log(jobs);
     });
-    setSearched(result);
-  };
+  }, [jobs, instance]);
 
   return (
     <div className="guest_container">
@@ -59,38 +71,25 @@ export default function LandingPageAdmin() {
       </div>
       <div className="admin_body">
         <div className="admin_row">
-          <InputGroup className="mb-3 guest_search admin_search ">
-            <FormControl
-              onChange={(e) => handleSearch(e)}
-              aria-label="First name"
-              id="search"
-              placeholder="Frontend Developer"
-            />
-            <Button variant="danger" id="button-addon2">
-              Search
-            </Button>
-          </InputGroup>
-          <CustomButton
-            click={() => {
-              setShow(true);
-              console.log(show);
-              console.log(setShow);
-            }}
-            textStyle={"see_button_text"}
-            containerStyle={"see_button tested"}
-            title="+ New Job"
+          <img height={60} src={search} alt="search" />
+          <img
+            height={60}
+            style={{ cursor: "pointer" }}
+            onClick={() => setShow(true)}
+            src={newJob}
+            alt="button"
           />
         </div>
         <div className="guest_body_left">
-          <div style={{ marginBottom: "20px" }} className="admin_table">
-            <p style={{ flex: 2 }} className="admin_table_header"></p>
+          <div className="admin_table">
+            <p style={{ flex: 1 }} className="admin_table_header"></p>
             <p className="admin_table_header">Job Title</p>
             <p className="admin_table_header">Date Modified</p>
             <p className="admin_table_header">Candidates</p>
-            <p style={{ flex: 4 }} className="admin_table_header"></p>
+            <p className="admin_table_header"></p>
             <p className="admin_table_header">Filters</p>
           </div>
-          {searched.map((item) => (
+          {Jobs.data.map((item) => (
             <div className="admin_table table_continue">
               <p
                 style={{ flex: 1 }}
@@ -108,23 +107,14 @@ export default function LandingPageAdmin() {
                 {Math.floor(Math.random(0, 1) * 200)}
               </p>
               <p className="admin_table_header admin_table_header2 ">
-                <CustomButton
-                  textStyle={"see_button_text"}
-                  containerStyle={"see_button"}
-                  title="Edit"
-                />
+                <img src={edit} alt="button" />
               </p>
               <p className="admin_table_header admin_table_header2 ">
-                <CustomButton
-                  click={() => setShow()}
-                  textStyle={"see_button_text deleted_text"}
-                  containerStyle={"see_button deleted"}
-                  title="Delete"
-                />
+                <img src={de} alt="button" />
               </p>
             </div>
           ))}
-          <CreateModal hideModal={setShow} showState={show} />
+          <CreateModal setShow={setShow} show={show} />
           <div className="pagination_container">
             <div
               onClick={() => setPage(1)}

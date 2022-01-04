@@ -83,6 +83,7 @@
 .button_text {
   font-family: "Gilroy-bold";
   font-size: 1.5rem;
+  text-decoration: none !important;
   color: #ffffff !important;
 }
 .input_con {

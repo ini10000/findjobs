@@ -5,14 +5,15 @@ import Input from "./Input";
 
 import "../assets/css/modal.css";
 
-export default function CreateModal({ setShow, show }) {
-  const showHideClassName = show ? "modal display-block" : "modal display-none";
-
+export default function CreateModal({ hideModal, showState }) {
+  const showHideClassName = showState
+    ? "modal display-block"
+    : "modal display-none";
   return (
     <div className={showHideClassName}>
       <div className=" modal-main">
         <div className="modal_body">
-          <div onClick={() => setShow(false)} className="close_div">
+          <div onClick={() => hideModal(false)} className="close_div">
             <img src={Close} alt="close" />
           </div>
           <div className="guest_job_header create_header">

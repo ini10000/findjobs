@@ -5,7 +5,7 @@ import "../assets/css/login.css";
 import logo from "../assets/images/loginLogo.png";
 import login from "../assets/images/loginImagea.png";
 import auth from "../utils/auth";
-import Button from "../components/Button";
+import CustomButton from "../components/Button";
 import * as ROUTES from "../routes/routes";
 
 export default function Login() {
@@ -33,9 +33,9 @@ export default function Login() {
           <input name="email" className="login_input" type={"email"} />
           <label className="login_label">Password</label>
           <input name="password" className="login_input" type={"password"} />
-          <Button
+          <CustomButton
             className="login_button"
-            onClick={(e) => {
+            click={(e) => {
               e.preventDefault();
               auth.login(() => {
                 navigate(ROUTES.ADMIN_HOME);

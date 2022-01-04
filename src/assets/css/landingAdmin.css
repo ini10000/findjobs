@@ -1,0 +1,43 @@
+.admin_nav {
+  margin: 0 1%;
+  cursor: pointer;
+}
+.admin_table_header {
+  color: white;
+  font-size: 1.4rem;
+  display: flex;
+  flex: 3;
+}
+.admin_table_header2 {
+  color: #0e0e10;
+}
+.admin_table {
+  display: flex;
+  flex-direction: row;
+  background: #0f4a7b;
+  width: 100%;
+  flex: 1;
+  justify-content: space-evenly;
+  border-radius: 10px;
+}
+.table_continue {
+  display: flex;
+  flex-direction: row;
+  background: white;
+  width: 100%;
+  flex: 1;
+  justify-content: space-evenly;
+  border-radius: 10px;
+}
+.admin_row {
+  display: flex;
+  flex: 1;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 5%;
+  margin-bottom: 4%;
+  width: 90%;
+}
+.admin_body {
+  flex-direction: column;
+}

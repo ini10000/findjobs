@@ -1,0 +1,67 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position: fixed;
+  width: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2% !important;
+  background: #f9fbfd;
+  border-radius: 10px;
+}
+
+.display-none {
+  display: none;
+}
+.close_div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  flex: 1;
+  cursor: pointer;
+}
+.modal_body {
+  width: 100%;
+}
+.submit_button {
+  width: 100%;
+  height: 10% !important;
+  padding: 0%;
+}
+.upload_container {
+  margin-top: 1%;
+
+  background: #ffffff;
+  border: 0.5px solid #0f4a7b;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 3% 2%;
+  color: #0f4a7b;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.browse {
+  padding: 0 3%;
+}
+.app_header {
+  margin: 0 !important;
+}
+.create_header {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.test {
+  justify-content: flex-end;
+}

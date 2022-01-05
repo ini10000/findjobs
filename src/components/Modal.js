@@ -36,14 +36,16 @@ export default function CustomModal({ item, setShow, location }) {
             type="hidden"
             onChange={(e) => (e.target.value = file)}
           />
-          <FileUploader handleChange={handleChange} name="CV">
-            <div className="upload_container">
-              <img height={40} src={Upload} alt="upload" />
-              <p className="login_label">Drag and drop your CV here</p>
-              <p className="login_label">or</p>
-              <Button containerStyle={"browse"} title="Browse files" />
-            </div>
-          </FileUploader>
+          <div className="upload_container">
+            <FileUploader handleChange={handleChange} name="CV">
+              <div className="upload_contain">
+                <img height={40} src={Upload} alt="upload" />
+                <p className="login_label">Drag and drop your CV here</p>
+                <p className="login_label">or</p>
+                <Button containerStyle={"browse"} title="Browse files" />
+              </div>
+            </FileUploader>
+          </div>
           <Button containerStyle="submit_button" title={"Submit Application"} />
         </form>
       </div>

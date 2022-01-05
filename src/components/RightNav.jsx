@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import CustomButton from "../components/Button";
 import * as ROUTES from "../routes/routes";
 
 const Ul = styled.ul`
   list-style: none;
   display: ${({ open }) => (open ? "flex" : "none")};
+  z-index: 200;
   flex-flow: row nowrap;
 
   li {
@@ -15,12 +15,7 @@ const Ul = styled.ul`
   }
   .burgerText {
     color: #0f4a7b;
-    margin-right: 600px;
-    color: #0f4a7b;
-    text-decoration: none;
-    padding-right: 50px;
-    font-family: AvenirNextCyr-Bold;
-    font-size: 14px;
+    text-decoration: none !important;
     text-transform: uppercase;
     opacity: 1;
     cursor: pointer;
@@ -32,7 +27,7 @@ const Ul = styled.ul`
     margin-top: 20px;
   }
   @media (min-width: 100px) {
-    z-index: 1;
+    z-index: 200;
     flex-flow: column nowrap;
     background-color: #fff;
     position: fixed;
@@ -53,15 +48,11 @@ const Ul = styled.ul`
 const RightNav = ({ open }) => {
   return (
     <Ul open={open}>
-      <p className="nav_item">Jobs</p>
-      <p className="nav_item nav_extras">Company Review</p>
-      <p className="nav_item nav_extras">Find Salaries</p>
+      <p className="nav_item nav_extras burgerText">Jobs</p>
+      <p className="nav_item nav_extras burgerText">Review</p>
+      <p className="nav_item nav_extras burgerText">Find Salaries</p>
       <Link to={ROUTES.LOGIN}>
-        <CustomButton
-          containerStyle="post_button"
-          textStyle="post_button_text"
-          title="Post Job"
-        />
+        <p className="nav_item nav_extras burgerText">Post Job</p>
       </Link>
     </Ul>
   );

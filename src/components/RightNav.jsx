@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import CustomButton from "../components/Button";
 import * as ROUTES from "../routes/routes";
 
 const Ul = styled.ul`

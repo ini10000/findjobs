@@ -8,6 +8,7 @@ import * as ROUTES from "../routes/routes";
 const Ul = styled.ul`
   list-style: none;
   display: ${({ open }) => (open ? "flex" : "none")};
+  z-index: 200;
   flex-flow: row nowrap;
 
   li {

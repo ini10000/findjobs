@@ -16,7 +16,6 @@ const Ul = styled.ul`
   .burgerText {
     color: #0f4a7b;
     margin-right: 600px;
-    color: #0f4a7b;
     text-decoration: none;
     padding-right: 50px;
     font-family: AvenirNextCyr-Bold;
@@ -53,9 +52,9 @@ const Ul = styled.ul`
 const RightNav = ({ open }) => {
   return (
     <Ul open={open}>
-      <p className="nav_item">Jobs</p>
-      <p className="nav_item nav_extras">Company Review</p>
-      <p className="nav_item nav_extras">Find Salaries</p>
+      <p className="nav_item nav_extras burgerText">Jobs</p>
+      <p className="nav_item nav_extras burgerText"> Review</p>
+      <p className="nav_item nav_extras burgerText">Find Salaries</p>
       <Link to={ROUTES.LOGIN}>
         <CustomButton
           containerStyle="post_button"

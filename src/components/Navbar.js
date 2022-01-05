@@ -9,7 +9,7 @@ import * as ROUTES from "../routes/routes";
 function Navbar() {
   return (
     <div>
-      {window.innerWidth > 1080 ? (
+      {window.innerWidth > 720 ? (
         <div className="guest_nav">
           <img height={40} src={logo} alt="logo" />
           <nav className="guest_sub_nav">

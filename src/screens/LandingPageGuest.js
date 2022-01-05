@@ -16,7 +16,7 @@ import Navbar from "../components/Navbar";
 export default function LandingPageGuest() {
   const [searched, setSearched] = useState(Jobs.data);
   const [page, setPage] = useState(1);
-  const [show, setShow] = useState(false);
+  const [showModal, setShow] = useState(false);
 
   const handleSearch = (e) => {
     let value = e.target.value.toLowerCase();
@@ -86,18 +86,21 @@ export default function LandingPageGuest() {
               </div>
               <div className="guest_job_footer">
                 <CustomButton
-                  click={() => setShow(true)}
+                  click={() => {
+                    setShow(true);
+                  }}
                   textStyle={"see_button_text"}
                   containerStyle={"see_button"}
                   title="Apply Via Find Job"
                 />
               </div>
-              <CustomModal
-                item={item}
-                setShow={setShow}
-                show={show}
-                location={location}
-              />
+              {showModal && (
+                <CustomModal
+                  item={item}
+                  setShow={setShow}
+                  location={location}
+                />
+              )}
             </div>
           ))}
           <div className="pagination_container">

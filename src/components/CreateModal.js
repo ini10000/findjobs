@@ -5,12 +5,9 @@ import Input from "./Input";
 
 import "../assets/css/modal.css";
 
-export default function CreateModal({ hideModal, showState }) {
-  const showHideClassName = showState
-    ? "modal display-block"
-    : "modal display-none";
+export default function CreateModal({ hideModal }) {
   return (
-    <div className={showHideClassName}>
+    <div className="modal_container">
       <div className=" modal-main">
         <div className="modal_body">
           <div onClick={() => hideModal(false)} className="close_div">

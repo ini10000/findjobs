@@ -22,7 +22,7 @@ import CreateModal from "../components/CreateModal";
 export default function LandingPageAdmin() {
   const [searched, setSearched] = useState(Jobs.data);
   const [page, setPage] = useState(1);
-  const [show, setShow] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   let navigate = useNavigate();
 
@@ -72,9 +72,7 @@ export default function LandingPageAdmin() {
           </InputGroup>
           <CustomButton
             click={() => {
-              setShow(true);
-              console.log(show);
-              console.log(setShow);
+              setShowModal(true);
             }}
             textStyle={"see_button_text"}
             containerStyle={"see_button tested"}
@@ -116,7 +114,6 @@ export default function LandingPageAdmin() {
               </p>
               <p className="admin_table_header admin_table_header2 ">
                 <CustomButton
-                  click={() => setShow()}
                   textStyle={"see_button_text deleted_text"}
                   containerStyle={"see_button deleted"}
                   title="Delete"
@@ -124,7 +121,7 @@ export default function LandingPageAdmin() {
               </p>
             </div>
           ))}
-          <CreateModal hideModal={setShow} showState={show} />
+          {showModal && <CreateModal hideModal={setShowModal} />}
           <div className="pagination_container">
             <div
               onClick={() => setPage(1)}

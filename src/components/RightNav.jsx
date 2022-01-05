@@ -53,14 +53,10 @@ const RightNav = ({ open }) => {
   return (
     <Ul open={open}>
       <p className="nav_item nav_extras burgerText">Jobs</p>
-      <p className="nav_item nav_extras burgerText"> Review</p>
+      <p className="nav_item nav_extras burgerText">Review</p>
       <p className="nav_item nav_extras burgerText">Find Salaries</p>
       <Link to={ROUTES.LOGIN}>
-        <CustomButton
-          containerStyle="post_button"
-          textStyle="post_button_text"
-          title="Post Job"
-        />
+        <p className="nav_item nav_extras burgerText">Post Job</p>
       </Link>
     </Ul>
   );
